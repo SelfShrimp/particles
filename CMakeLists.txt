@@ -19,6 +19,10 @@ qt_add_executable(particles
     main.cpp
     assets/particle.png main.qml
     qml.qrc
+    CustomSlider.qml
+    CustomLabel.qml
+    SettingsView.qml
+    AppSettings.qml
 )
 
 set_target_properties(particles PROPERTIES
