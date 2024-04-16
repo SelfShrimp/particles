@@ -14,6 +14,7 @@ Item {
         id: settingsDrawer
         modal: false
         edge: Qt.RightEdge
+        y: 60
         interactive: false
         leftInset: -10
         topInset: -20
