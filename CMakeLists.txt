@@ -22,7 +22,7 @@ qt_add_executable(particles
     CustomSlider.qml
     CustomLabel.qml
     SettingsView.qml
-    AppSettings.qml
+
 )
 
 set_target_properties(particles PROPERTIES
