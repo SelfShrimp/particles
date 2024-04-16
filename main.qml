@@ -4,15 +4,18 @@ import QtQuick.Controls
 import QtQuick.Dialogs
 
 
-ApplicationWindow {
+ApplicationWindow
+{
     id: rootWindow
     width: 720
     height: 720
     visible: true
     title: qsTr("Particle")
 
-    menuBar: MenuBar {
-        Menu {
+    menuBar: MenuBar
+    {
+        Menu
+        {
             title: qsTr("&File")
 
             /*
@@ -20,14 +23,17 @@ ApplicationWindow {
                 QML_XHR_ALLOW_FILE_WRITE=1
                 QML_XHR_ALLOW_FILE_READ=1
             */
-            Action {
+            Action
+            {
                 text: qsTr("&Open")
-                onTriggered: {
+                onTriggered:
+                {
                     var fileName = "settings.json";
                     var xhr = new XMLHttpRequest;
                     xhr.open("GET", "file:///" + applicationDirPath + "/settings.json", false);
 
-                    xhr.onreadystatechange = function() {
+                    xhr.onreadystatechange = function()
+                    {
                         if (xhr.readyState === XMLHttpRequest.DONE){
                             var settings = JSON.parse(xhr.responseText);
 
@@ -46,9 +52,11 @@ ApplicationWindow {
                 }
             }
 
-            Action {
+            Action
+            {
                 text: qsTr("&Save")
-                onTriggered: {
+                onTriggered:
+                {
                     var settings = {
                         "X": positionX.sliderValue,
                         "Y": positionY.sliderValue,
@@ -72,15 +80,18 @@ ApplicationWindow {
 
     }
 
-    Rectangle {
+    Rectangle
+    {
         id: root
         anchors.fill: parent
         color: "#1f1f1f"
-        ParticleSystem {
+        ParticleSystem
+        {
             id: particleSystem
         }
 
-        Emitter {
+        Emitter
+        {
             id: emitter
             width: 360
             height: 360
@@ -93,14 +104,16 @@ ApplicationWindow {
             size: scale.sliderValue
             sizeVariation: 16
             maximumEmitted: maxCountEmitted.sliderValue
-            velocity: AngleDirection {
+            velocity: AngleDirection
+            {
                 angle: -90
                 angleVariation: 30
                 magnitude: magnitude.sliderValue
             }
         }
 
-        ImageParticle {
+        ImageParticle
+        {
             source: "assets/particle.png"
             system: particleSystem
             rotation: rotate.sliderValue
@@ -108,41 +121,50 @@ ApplicationWindow {
         }
     }
 
-    SettingsView {
-        CustomLabel {
+    SettingsView
+    {
+        CustomLabel
+        {
             text: "Life Span"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: lifeSpan
             sliderValue: 1000
             fromValue: 0
             toValue: 3000
         }
 
-        CustomLabel {
+        CustomLabel
+        {
             text: "Emit Rate"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: emitRate
             sliderValue: 10
             fromValue: 0
             toValue: 50
         }
 
-        CustomLabel {
+        CustomLabel
+        {
             text: "Size"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: scale
             sliderValue: 32
             fromValue: 1
             toValue: 64
         }
 
-        CustomLabel {
+        CustomLabel
+        {
             text: "Rotate"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: rotate
             sliderValue: 0
             fromValue: 0
@@ -150,10 +172,12 @@ ApplicationWindow {
         }
 
         // TODO: it is necessary to fix the reduction
-        CustomLabel {
+        CustomLabel
+        {
             text: "Maximum count"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: maxCountEmitted
             sliderValue: 1
             fromValue: 1
@@ -161,10 +185,12 @@ ApplicationWindow {
             sliderStepSize: 1
         }
 
-        CustomLabel {
+        CustomLabel
+        {
             text: "X"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: positionX
             sliderValue: 180
             fromValue: 0
@@ -172,10 +198,12 @@ ApplicationWindow {
             sliderStepSize: 1
         }
 
-        CustomLabel {
+        CustomLabel
+        {
             text: "Y"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: positionY
             sliderValue: 180
             fromValue: 0
@@ -183,10 +211,12 @@ ApplicationWindow {
             sliderStepSize: 1
         }
 
-        CustomLabel {
+        CustomLabel
+        {
             text: "Velocity"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: magnitude
             sliderValue: 0
             fromValue: 0
@@ -194,10 +224,12 @@ ApplicationWindow {
             sliderStepSize: 1
         }
 
-        CustomLabel {
+        CustomLabel
+        {
             text: "Rotate Velocity"
         }
-        CustomSlider {
+        CustomSlider
+        {
             id: rotateVelocity
             sliderValue: 0
             fromValue: 0

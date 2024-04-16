@@ -1,6 +1,7 @@
 import QtQuick
 
-Text {
+Text
+{
     color: "#f0f0f0"
     font.pointSize: 10
 }

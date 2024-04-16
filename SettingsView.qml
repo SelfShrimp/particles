@@ -10,7 +10,8 @@ Item {
     width: settingsDrawer.width
     height: settingsDrawer.height
 
-    Drawer {
+    Drawer
+    {
         id: settingsDrawer
         modal: false
         edge: Qt.RightEdge
@@ -22,18 +23,22 @@ Item {
         topMargin: 10
         visible: true
 
-        background: Rectangle {
+        background: Rectangle
+        {
             color: "#80404040"
             border.color: "#000000"
             border.width: 1
             opacity: 0.8
         }
 
-        Column {
+        Column
+        {
             id: settingsArea
         }
-        enter: Transition {
-            NumberAnimation {
+        enter: Transition
+        {
+            NumberAnimation
+            {
                 property: "position"
                 to: 1.0
                 duration: 800
@@ -41,8 +46,10 @@ Item {
             }
         }
 
-        exit: Transition {
-            NumberAnimation {
+        exit: Transition
+        {
+            NumberAnimation
+            {
                 property: "position"
                 to: 0.0
                 duration: 800

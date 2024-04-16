@@ -2,7 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-Item {
+Item
+{
     id: rootItem
     property alias sliderValue: slider.value
     property alias fromValue: slider.from
@@ -14,21 +15,19 @@ Item {
     width: 260
     height: rowLayout.height
 
-    MouseArea {
-        anchors.fill: parent
-        onPressed: {}
-    }
-
-    RowLayout {
+    RowLayout
+    {
         id: rowLayout
         width: parent.width
-        Slider {
+        Slider
+        {
             id: slider
             stepSize: 0.01
             Layout.minimumWidth: 200
             Layout.fillWidth: true
         }
-        Label {
+        Label
+        {
             id: valueText
             text: slider.value.toFixed(2)
             color: "#f0f0f0"
